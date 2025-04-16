@@ -14,7 +14,7 @@ def load_data(path):
     df["Цвета"] = df["Цвет"].astype(str).str.replace('\n', ' ').str.lower().str.split(",")
     return df
 
-df = load_data("reliase.xlsx")
+df = load_data("reliase_anon_short.xlsx")
 уникальные_ткани = sorted(df["Название ткани"].dropna().unique())
 уникальные_составы = sorted(df["Состав"].dropna().unique())
 уникальные_цвета = sorted(set(c.strip() for sublist in df["Цвета"] for c in sublist if isinstance(sublist, list)))
